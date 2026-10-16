@@ -34,6 +34,7 @@ Are there missing values?
 
 ```{r}
 # explore the types of the columns in jan_feb_flights
+glimpse(jan_feb_flights)
 
 ```
 
