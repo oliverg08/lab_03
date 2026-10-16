@@ -40,7 +40,7 @@ glimpse(jan_feb_flights)
 
 ```{r}
 # which columns are integer
-
+12
 
 # which columns are double
 
