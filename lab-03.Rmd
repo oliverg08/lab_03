@@ -40,31 +40,38 @@ glimpse(jan_feb_flights)
 
 ```{r}
 # which columns are integer
-12
+
+#year, month, day dep_time, sched_dep_time, arr_time, sched_arr_time, flight
 
 # which columns are double
 
+#dep_delay, arr_delay, airtime, distance, hour, minute, 
 
 # which columns are character
 
+#carrier, tailnum, origin, dest
 
 ```
 
 ```{r}
 # which columns contain NA's
 
+#is.na(jan_feb_flights)
+
+#elm ai recommened to use the any() function
+
+any(is.na(jan_feb_flights))
 ```
 
 **Summary:**  
 
-_Use this space to summarize what you attempted, either from your own exploration or an AI explanation._
 
 ## 1.3 Reflection
 
 Did the GenAI explanation (if used) help you? Which language model you explored? 
 What was clear or unclear? Did it make any errors or skip anything important? Did you fact-check? Did you need to provide follow-up prompts or clarifications, or was the first response sufficient?
 
-_Your answer here_
+we almost got there but needed to use ELM AI to help us because the first attempt gave us a massive table that was difficult to analyse but the ai recommended we use any() to return a single value instead.
 
 ---
 
@@ -79,7 +86,7 @@ _Your answer here_
 
 # join the datasets
 jan_feb_flights <- jan_feb_flights %>%
-  ____________(weather, by = c(______________________)) 
+  left_join(weather, by = c("origin", "year", "month", "day", "hour")) 
 ```
 
 ```{r}

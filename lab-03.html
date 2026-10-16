@@ -399,16 +399,25 @@ glimpse(jan_feb_flights)</code></pre>
 ## $ minute         &lt;dbl&gt; 15, 29, 40, 45, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 0…
 ## $ time_hour      &lt;dttm&gt; 2013-01-01 05:00:00, 2013-01-01 05:00:00, 2013-01-01 0…</code></pre>
 <pre class="r"><code># which columns are integer
-12</code></pre>
-<pre><code>## [1] 12</code></pre>
-<pre class="r"><code># which columns are double
 
+#year, month, day dep_time, sched_dep_time, arr_time, sched_arr_time, flight
 
-# which columns are character</code></pre>
-<pre class="r"><code># which columns contain NA&#39;s</code></pre>
+# which columns are double
+
+#dep_delay, arr_delay, airtime, distance, hour, minute, 
+
+# which columns are character
+
+#carrier, tailnum, origin, dest</code></pre>
+<pre class="r"><code># which columns contain NA&#39;s
+
+#is.na(jan_feb_flights)
+
+#elm ai recommened to use the any() function
+
+any(is.na(jan_feb_flights))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 <p><strong>Summary:</strong></p>
-<p><em>Use this space to summarize what you attempted, either from your
-own exploration or an AI explanation.</em></p>
 </div>
 <div id="reflection" class="section level2">
 <h2>1.3 Reflection</h2>
@@ -417,7 +426,9 @@ you explored? What was clear or unclear? Did it make any errors or skip
 anything important? Did you fact-check? Did you need to provide
 follow-up prompts or clarifications, or was the first response
 sufficient?</p>
-<p><em>Your answer here</em></p>
+<p>we almost got there but needed to use ELM AI to help us because the
+first attempt gave us a massive table that was difficult to analyse but
+the ai recommended we use any() to return a single value instead.</p>
 <hr />
 </div>
 </div>
@@ -431,7 +442,7 @@ delay and wind gust speed.</p>
 
 # join the datasets
 jan_feb_flights &lt;- jan_feb_flights %&gt;%
-  ____________(weather, by = c(______________________)) </code></pre>
+  left_join(weather, by = c(&quot;origin&quot;, &quot;year&quot;, &quot;month&quot;, &quot;day&quot;, &quot;hour&quot;)) </code></pre>
 <pre class="r"><code># is there a difference in wind speed when wind_gust is missing vs not missing?</code></pre>
 <p>Describe the difference in wind speed when wind_gust is missing vs
 not missing:</p>
